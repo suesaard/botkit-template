@@ -4,7 +4,7 @@ module.exports = function (controller) {
 
         bot.startConversation(message, function (err, convo) {
             var question = "Please select menu.:";
-            question += "<br/> `1)` join a Community Of Interest (**communities**)";
+            question += "<br/> `1)` **Math**";
             question += "<br/> `2)` take a Learning Lab (**labs**)";
             question += "<br/> `3)` check Upcoming Events (**events**)";
             question += "\n\nWhat do you want to do ?<br/>_(type a number, a **bold keyword** or `cancel`)_";
@@ -48,47 +48,46 @@ module.exports = function (controller) {
             
            
             
-            convo.addMessage({
-                text:"Pass",
-                action: 'default'
-            }, 'menu_1');
-            
-            convo.ask("What about coffee (yes/**no**/cancel)", [
+            convo.addMessage("Let's start", "quiz");
+            var challenge = pickChallenge();
+            convo.addQuestion("Question: " + challenge.question, [
                 {
-                    pattern: "yes|yeh|sure|oui|si",
+                    pattern: "^"+ challenge.answer + "$",
                     callback: function (response, convo) {
-                        convo.say("Go, get some !");
-                        convo.next();
-                    },
-                }
-                , {
-                    pattern: "no|neh|non|na|birk",
-                    callback: function (response, convo) {
-                        convo.gotoThread('ask-drink');
+                        convo.gotoThread('success');
                     },
                 }
                 , {
                     pattern: "cancel|stop|exit",
                     callback: function (response, convo) {
-                        convo.say("Got it, cancelling...");
-                        convo.next();
+                        convo.gotoThread('cancel');
                     },
                 }
                 , {
                     default: true,
                     callback: function (response, convo) {
-                        convo.say("Sorry, I did not understand.");
+                        convo.say("Sorry, wrong answer. Try again!");
                         convo.repeat();
                         convo.next();
                     }
                 }
-            ]);
+            ], {}, 'menu_1');
+            
+            
             
             convo.addMessage({
                  text:"Pass",
                 action: 'default'
             }, 'menu_2');
-
+            
+    function pickChallenge() {
+    var a = Math.round(Math.random()*5) + 4;
+    var b = Math.round(Math.random()*5) + 4;
+    return {
+        question : "" + a + " x " + b + " =",
+        answer : "" + (a * b)
+    }
+}
 
             // Bad response
             convo.addMessage({
