@@ -129,7 +129,7 @@ module.exports = function (controller) {
             ], {}, 'menu_2');
             
             
-            convo.addQuestion("Congrats, you did it!<br/>_What is the maximum resolution_", [
+            convo.addQuestion("What is the maximum resolution", [
                 {
                     pattern: "1080",
                     callback: function (response, convo) {
