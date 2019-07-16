@@ -133,7 +133,7 @@ module.exports = function (controller) {
                 {
                     pattern: "1080",
                     callback: function (response, convo) {
-                        convo.gotoThread('success');                      
+                        convo.gotoThread('success1');                      
                     },
                 }
                 , {
