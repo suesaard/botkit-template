@@ -44,6 +44,37 @@ module.exports = function (controller) {
                 }
             ]);
             
+            convo.ask("What about coffee (yes/**no**/cancel)", [
+                {
+                    pattern: "yes|yeh|sure|oui|si",
+                    callback: function (response, convo) {
+                        convo.say("Go, get some !");
+                        convo.next();
+                    },
+                }
+                , {
+                    pattern: "no|neh|non|na|birk",
+                    callback: function (response, convo) {
+                        convo.gotoThread('ask-drink');
+                    },
+                }
+                , {
+                    pattern: "cancel|stop|exit",
+                    callback: function (response, convo) {
+                        convo.say("Got it, cancelling...");
+                        convo.next();
+                    },
+                }
+                , {
+                    default: true,
+                    callback: function (response, convo) {
+                        convo.say("Sorry, I did not understand.");
+                        convo.repeat();
+                        convo.next();
+                    }
+                }
+            ]);
+            
             convo.addMessage({
                 action: 'default'
             }, 'menu_1');
