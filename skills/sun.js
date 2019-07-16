@@ -19,7 +19,7 @@ module.exports = function (controller) {
                     pattern: "2|lab|track|learn",
                     callback: function (response, convo) {
                          convo.say("Mr.Khajornsak Sua-sa-ard<br/>_Date7/16/2019_");
-                       convo.gotoThread('webex1');
+                      convo.next();
                     },
                 }
                 , {
