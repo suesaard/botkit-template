@@ -80,7 +80,8 @@ module.exports = function (controller) {
             
               convo.addMessage({
                 text: "Congrats, you did it!",
-            }, 'success1');
+                
+            }, convo.next(); ,'success1');
             
              convo.addMessage({
                 text: "Congrats, you did it!",
