@@ -76,10 +76,11 @@ module.exports = function (controller) {
             
             
             convo.addMessage("Congrats, you did it!", "success");
+            action: 'default'
 
             
             convo.addMessage("Time elapsed! you missed it, sorry.", "missed");
-            
+             action: 'default'
             
             
             convo.addMessage({
