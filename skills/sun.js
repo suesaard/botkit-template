@@ -54,8 +54,7 @@ module.exports = function (controller) {
                 {
                     pattern: "^"+ challenge.answer + "$",
                     callback: function (response, convo) {
-                        convo.gotoThread('success');
-                        action: 'default'
+                        convo.gotoThread('success');                      
                     },
                 }
                 , {
@@ -75,12 +74,12 @@ module.exports = function (controller) {
             ], {}, 'menu_1');
             
             
-            convo.addMessage("Congrats, you did it!", "success");
-            action: 'default'
+            convo.addMessage("Congrats, you did it!",action: 'default', "success");
+           
 
             
-            convo.addMessage("Time elapsed! you missed it, sorry.", "missed");
-             action: 'default'
+            convo.addMessage("Time elapsed! you missed it, sorry.",action: 'default', "missed");
+            
             
             
             convo.addMessage({
