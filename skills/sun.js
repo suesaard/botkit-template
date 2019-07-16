@@ -100,10 +100,6 @@ module.exports = function (controller) {
             
             
             
-            convo.addMessage({
-                 text:"Pass",
-                action: 'default'
-            }, 'menu_2');
             
           
             convo.addMessage("Let's start", "quiz");
