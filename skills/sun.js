@@ -45,7 +45,7 @@ module.exports = function (controller) {
             ]);
             
             convo.addMessage({
-                 convo.gotoThread('menu_2');
+               
                 action: 'default'
             }, 'menu_1');
             
