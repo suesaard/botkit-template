@@ -5,8 +5,8 @@ module.exports = function (controller) {
         bot.startConversation(message, function (err, convo) {
             var question = "Please select menu.:";
             question += "<br/> `1)` **Math Question**";
-            question += "<br/> `2)` **Cisco WebEX Question**";
-            question += "<br/> `3)` **INFO**";
+            question += "<br/> `2)` **INFO**";
+            question += "<br/> `3)` **Cisco WebEX Question**";
             question += "\n\nWhat do you want to do ?<br/>_(type a number, a **bold keyword** or `cancel`)_";
             convo.ask(question, [
             {
@@ -17,7 +17,8 @@ module.exports = function (controller) {
                 }
                 , {
                     pattern: "2|lab|track|learn",
-                    callback: function (response, convo) {                     
+                    callback: function (response, convo) {
+                         convo.say("Mr.Khajornsak Sua-sa-ard<br/>_Date7/16/2019_");
                        convo.gotoThread('webex1');
                     },
                 }
