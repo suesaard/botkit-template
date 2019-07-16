@@ -75,14 +75,14 @@ module.exports = function (controller) {
             
             
             convo.addMessage({
-                text: "Excellent choice: now [discover the DevNet communities](https://developer.cisco.com/site/coi/) online, and pick your favorite...",
+                text: "Congrats, you did it!",
                 action: 'default'
             }, 'success');
            
 
             
             convo.addMessage({
-                text: "Excellent choice: now [discover the DevNet communities](https://developer.cisco.com/site/coi/) online, and pick your favorite...",
+                text: "Time elapsed! you missed it, sorry.",
                 action: 'default'
             }, 'missed');
             
