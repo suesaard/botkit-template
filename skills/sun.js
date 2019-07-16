@@ -1,4 +1,4 @@
-odule.exports = function (controller) {
+module.exports = function (controller) {
 
     controller.hears([/^hello khajornsak$/], 'direct_message,direct_mention', function (bot, message) {
 
