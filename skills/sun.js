@@ -72,29 +72,6 @@ module.exports = function (controller) {
                 }
             ], {}, 'menu_1');
             
-            convo.addMessage("Let's start", "quiz");
-            convo.addQuestion("What is maximum resolution", [
-                {
-                    pattern: "1080|1080p",
-                    callback: function (response, convo) {
-                        convo.gotoThread('success');                      
-                    },
-                }
-                , {
-                    pattern: "cancel|stop|exit",
-                    callback: function (response, convo) {
-                        convo.gotoThread('cancel');                 
-                    },
-                }
-                , {
-                    default: true,
-                    callback: function (response, convo) {
-                        convo.say("Sorry, wrong answer. Try again!");
-                        convo.repeat();
-                        convo.next();
-                    }
-                }
-            ], {}, 'menu_2');
             
             
             convo.addMessage({
