@@ -109,7 +109,7 @@ module.exports = function (controller) {
                 {
                     pattern: "1000",
                     callback: function (response, convo) {
-                        convo.gotoThread('success');                      
+                        convo.gotoThread('menu_3');                      
                     },
                 }
                 , {
@@ -127,6 +127,30 @@ module.exports = function (controller) {
                     }
                 }
             ], {}, 'menu_2');
+            
+            
+            convo.addQuestion("Congrats, you did it!<br/>_What is the maximum resolution_", [
+                {
+                    pattern: "1080",
+                    callback: function (response, convo) {
+                        convo.gotoThread('success');                      
+                    },
+                }
+                , {
+                    pattern: "cancel|stop|exit",
+                    callback: function (response, convo) {
+                        convo.gotoThread('cancel');                 
+                    },
+                }
+                , {
+                    default: true,
+                    callback: function (response, convo) {
+                        convo.say("Sorry, wrong answer. Try again!");
+                        convo.repeat();
+                        convo.next();
+                    }
+                }
+            ], {}, 'menu_3');
             
             
             
