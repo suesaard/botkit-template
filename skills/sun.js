@@ -80,7 +80,7 @@ module.exports = function (controller) {
             
               convo.addMessage({
                 text: "Congrats, you did it!",
-                 action: 'webex2'
+                 action: 'webex1'
             }, 'success1');
             
              convo.addMessage({
