@@ -122,6 +122,31 @@ module.exports = function (controller) {
                 }
             ]);
             
+            convo.ask("What is the Maximum Users", [
+                {
+                    pattern: "1000|1000people",
+                    callback: function (response, convo) {
+                    convo.gotoThread('success1'); 
+                    convo.next();
+                    },
+                }
+                , {
+                    pattern: "cancel|stop|exit",
+                    callback: function (response, convo) {
+                        convo.say("Got it, cancelling...");
+                        convo.next();
+                    },
+                }
+                , {
+                    default: true,
+                    callback: function (response, convo) {
+                        convo.say("Sorry, you missed it. Try again!");
+                        convo.repeat();
+                        convo.next();
+                    }
+                }
+            ]);
+            
             
     function pickChallenge() {
     var a = Math.round(Math.random()*5) + 4;
