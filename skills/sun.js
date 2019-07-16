@@ -73,6 +73,12 @@ module.exports = function (controller) {
                 }
             ], {}, 'menu_1');
             
+            / Success thread
+            convo.addMessage("Congrats, you did it!", "success");
+
+            // Missed thread
+            convo.addMessage("Time elapsed! you missed it, sorry.", "missed");
+            
             
             
             convo.addMessage({
