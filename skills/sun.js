@@ -103,10 +103,11 @@ module.exports = function (controller) {
             
           
             convo.addMessage("Let's start", "quiz");
-            var challenge = pickChallenge();
-            convo.addQuestion("Question: " + challenge.question, [
+            //var challenge = pickChallenge();
+            //convo.addQuestion("Question: " + challenge.question, [
+            convo.addQuestion("What is the Maximum Number of Participants in a Webex Session ", [
                 {
-                    pattern: "^"+ challenge.answer + "$",
+                    pattern: "1000",
                     callback: function (response, convo) {
                         convo.gotoThread('success');                      
                     },
