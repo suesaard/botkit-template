@@ -24,8 +24,7 @@ module.exports = function (controller) {
                 , {
                     pattern: "3|event|express",
                     callback: function (response, convo) {
-                        convo.say("Mr.Khajornsak Sua-sa-ard"+"<br/>);
-                        convo.say("SYNNEX THAILAND");
+                        convo.say("Mr.Khajornsak Sua-sa-ard");
                         convo.next();
                     },
                 }
