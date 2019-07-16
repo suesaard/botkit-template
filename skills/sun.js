@@ -45,7 +45,10 @@ module.exports = function (controller) {
             ]);
             
             convo.addMessage({
-                 convo.ask("What about coffee (yes/**no**/cancel)", [
+                 convo.next();
+            }, {}, 'ask-drink');
+
+            convo.ask("What about coffee (yes/**no**/cancel)", [
                 {
                     pattern: "yes|yeh|sure|oui|si",
                     callback: function (response, convo) {
