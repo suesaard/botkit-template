@@ -1,6 +1,6 @@
 module.exports = function (controller) {
 
-    controller.hears([/^hello khajornsak$/], 'direct_message,direct_mention', function (bot, message) {
+    controller.hears([/^Hi$/], 'direct_message,direct_mention', function (bot, message) {
 
         bot.startConversation(message, function (err, convo) {
             var question = "Please select menu.:";
