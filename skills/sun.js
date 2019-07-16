@@ -5,8 +5,8 @@ module.exports = function (controller) {
         bot.startConversation(message, function (err, convo) {
             var question = "Please select menu.:";
             question += "<br/> `1)` **Math**";
-            question += "<br/> `2)` take a Learning Lab (**labs**)";
-            question += "<br/> `3)` check Upcoming Events (**events**)";
+            question += "<br/> `2)` **Cisco WebEX Question**";
+            question += "<br/> `3)` **INFO**;
             question += "\n\nWhat do you want to do ?<br/>_(type a number, a **bold keyword** or `cancel`)_";
             convo.ask(question, [
             {
@@ -17,15 +17,15 @@ module.exports = function (controller) {
                 }
                 , {
                     pattern: "2|lab|track|learn",
-                    callback: function (response, convo) {
-                        convo.say("Learnings **labs** are step-by-step tutorials. They are grouped into **tracks** to help you on your rampup journey. Just browse through [the learnings tracks](https://learninglabs.cisco.com/login) and pick the labs that suits your learning appetite!");
+                    callback: function (response, convo) {                     
                         convo.next();
                     },
                 }
                 , {
                     pattern: "3|event|express",
                     callback: function (response, convo) {
-                        convo.say("Nothing's like meeting in person at a conference, training or a hackathon. Check the list of [DevNet events](https://developer.cisco.com/site/devnet/events-contests/events/) or ask the bot: invite `CiscoDevNet@sparkbot.io` to chat in a Webex Teams space.");
+                        convo.say("Mr.Khajornsak Sua-sa-ard"+"<br/>);
+                        convo.say("SYNNEX THAILAND");
                         convo.next();
                     },
                 }
@@ -92,6 +92,28 @@ module.exports = function (controller) {
                  text:"Pass",
                 action: 'default'
             }, 'menu_2');
+            
+            convo.ask("What about coffee (yes/**no**/cancel)", [
+                {
+                    pattern: "yes|yeh|sure|oui|si",
+                    callback: function (response, convo) {
+                        convo.say("Go, get some !");
+                        convo.next();
+                    },
+                }
+                , {
+                    pattern: "no|neh|non|na|birk",
+                    callback: function (response, convo) {
+                        convo.gotoThread('ask-drink');
+                    },
+                }
+                , {
+                    pattern: "cancel|stop|exit",
+                    callback: function (response, convo) {
+                        convo.say("Got it, cancelling...");
+                        convo.next();
+                    },
+                }
             
     function pickChallenge() {
     var a = Math.round(Math.random()*5) + 4;
