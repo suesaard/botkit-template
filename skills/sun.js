@@ -96,12 +96,12 @@ module.exports = function (controller) {
                 {
                     pattern: "1080|1080p",
                     callback: function (response, convo) {
-                        convo.say("Go, get some !");
+                        convo.say("Congrats, you did it!<br/>_What is the Maximum Users_");
                         convo.next();
                     },
                 }
                 , {
-                    pattern: "no|neh|non|na|birk",
+                    pattern: "1000|1000people",
                     callback: function (response, convo) {
                         convo.gotoThread('ask-drink');
                     },
@@ -116,7 +116,7 @@ module.exports = function (controller) {
                 , {
                     default: true,
                     callback: function (response, convo) {
-                        convo.say("Sorry, I did not understand.");
+                        convo.say("Sorry, you missed it. Try again!");
                         convo.repeat();
                         convo.next();
                     }
