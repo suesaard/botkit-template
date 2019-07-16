@@ -13,7 +13,7 @@ module.exports = function (controller) {
                     pattern: "1|community|communities",
                     callback: function (response, convo) {
                         convo.say("Excellent choice: now [check the DevNet communities](https://developer.cisco.com/site/coi/) online, and pick your favorite...");
-                        convo.next();
+                        convo.gotoThread('menu_1');
                     },
                 }
                 , {
