@@ -44,6 +44,11 @@ module.exports = function (controller) {
                 }
             ]);
             
+            convo.addMessage({
+                action: 'default'
+            }, 'menu_0');
+            
+            
             convo.ask("What about coffee (yes/**no**/cancel)", [
                 {
                     pattern: "yes|yeh|sure|oui|si",
