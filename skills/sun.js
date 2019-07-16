@@ -80,7 +80,9 @@ module.exports = function (controller) {
             
               convo.addMessage({
                 text: "Congrats, you did it!",
-                 action: 'webex1'
+                 callback: function (response, convo) {
+                        convo.gotoThread('webex2');                      
+                    },
             }, 'success1');
             
              convo.addMessage({
