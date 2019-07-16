@@ -79,6 +79,8 @@ module.exports = function (controller) {
                 action: 'default'
             }, 'success');
             
+            
+            
                 convo.addMessage({
                 text: "Congrats, you did it!",
                 action: 'default'
@@ -104,7 +106,30 @@ module.exports = function (controller) {
             }, 'menu_2');
             
           
-            
+            convo.addMessage("Let's start", "quiz");
+            var challenge = pickChallenge();
+            convo.addQuestion("Question: " + challenge.question, [
+                {
+                    pattern: "^"+ challenge.answer + "$",
+                    callback: function (response, convo) {
+                        convo.gotoThread('success');                      
+                    },
+                }
+                , {
+                    pattern: "cancel|stop|exit",
+                    callback: function (response, convo) {
+                        convo.gotoThread('cancel');                 
+                    },
+                }
+                , {
+                    default: true,
+                    callback: function (response, convo) {
+                        convo.say("Sorry, wrong answer. Try again!");
+                        convo.repeat();
+                        convo.next();
+                    }
+                }
+            ], {}, 'menu_2');
             
             
             
