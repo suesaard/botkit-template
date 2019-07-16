@@ -50,7 +50,7 @@ module.exports = function (controller) {
             }, 'menu_1');
             
             convo.addMessage({
-                 text:"Pass"
+                 text:"Pass",
                 action: 'default'
             }, 'menu_2');
 
