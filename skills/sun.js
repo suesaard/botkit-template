@@ -6,7 +6,7 @@ module.exports = function (controller) {
             var question = "Please select menu.:";
             question += "<br/> `1)` **Math**";
             question += "<br/> `2)` **Cisco WebEX Question**";
-            question += "<br/> `3)` **INFO**;
+            question += "<br/> `3)` **INFO**";
             question += "\n\nWhat do you want to do ?<br/>_(type a number, a **bold keyword** or `cancel`)_";
             convo.ask(question, [
             {
@@ -92,6 +92,27 @@ module.exports = function (controller) {
                 action: 'default'
             }, 'menu_2');
             
+            convo.ask("What about coffee (yes/**no**/cancel)", [
+                {
+                    pattern: "yes|yeh|sure|oui|si",
+                    callback: function (response, convo) {
+                        convo.say("Go, get some !");
+                        convo.next();
+                    },
+                }
+                , {
+                    pattern: "no|neh|non|na|birk",
+                    callback: function (response, convo) {
+                        convo.gotoThread('ask-drink');
+                    },
+                }
+                , {
+                    pattern: "cancel|stop|exit",
+                    callback: function (response, convo) {
+                        convo.say("Got it, cancelling...");
+                        convo.next();
+                    },
+                }
             
             
     function pickChallenge() {
