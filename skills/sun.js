@@ -12,7 +12,6 @@ module.exports = function (controller) {
             {
                     pattern: "1|community|communities",
                     callback: function (response, convo) {
-                        convo.say("Excellent choice: now [check the DevNet communities](https://developer.cisco.com/site/coi/) online, and pick your favorite...");
                         convo.gotoThread('menu_1');
                     },
                 }
@@ -44,6 +43,11 @@ module.exports = function (controller) {
                     }
                 }
             ]);
+            
+            convo.addMessage({
+                text: "Excellent choice: now [discover the DevNet communities](https://developer.cisco.com/site/coi/) online, and pick your favorite...",
+                action: 'default'
+            }, 'menu_1');
 
             // Bad response
             convo.addMessage({
