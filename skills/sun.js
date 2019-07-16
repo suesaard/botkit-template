@@ -55,12 +55,13 @@ module.exports = function (controller) {
                     pattern: "^"+ challenge.answer + "$",
                     callback: function (response, convo) {
                         convo.gotoThread('success');
+                        action: 'default'
                     },
                 }
                 , {
                     pattern: "cancel|stop|exit",
                     callback: function (response, convo) {
-                        convo.gotoThread('cancel');
+                        convo.gotoThread('cancel');                 
                     },
                 }
                 , {
