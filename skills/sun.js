@@ -18,7 +18,7 @@ module.exports = function (controller) {
                 , {
                     pattern: "2|lab|track|learn",
                     callback: function (response, convo) {                     
-                        convo.next();
+                       convo.gotoThread('webex1');
                     },
                 }
                 , {
