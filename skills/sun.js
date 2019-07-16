@@ -5,8 +5,8 @@ module.exports = function (controller) {
         bot.startConversation(message, function (err, convo) {
             var question = "Please select menu.:";
             question += "<br/> `1)` **Math Question**";
-            question += "<br/> `2)` **INFO**";
-            question += "<br/> `3)` **Cisco WebEX Question**";
+            question += "<br/> `2)` **Cisco WebEX Question**";
+            question += "<br/> `3)` **INFO**";
             question += "\n\nWhat do you want to do ?<br/>_(type a number, a **bold keyword** or `cancel`)_";
             convo.ask(question, [
             {
@@ -18,8 +18,7 @@ module.exports = function (controller) {
                 , {
                     pattern: "2|lab|track|learn",
                     callback: function (response, convo) {
-                         convo.say("Mr.Khajornsak Sua-sa-ard<br/>_Date7/16/2019_");
-                      convo.next();
+                             convo.gotoThread('menu_2');
                     },
                 }
                 , {
@@ -73,6 +72,30 @@ module.exports = function (controller) {
                 }
             ], {}, 'menu_1');
             
+            convo.addMessage("Let's start", "quiz");
+            convo.addQuestion("What is maximum resolution", [
+                {
+                    pattern: "1080|1080p",
+                    callback: function (response, convo) {
+                        convo.gotoThread('success');                      
+                    },
+                }
+                , {
+                    pattern: "cancel|stop|exit",
+                    callback: function (response, convo) {
+                        convo.gotoThread('cancel');                 
+                    },
+                }
+                , {
+                    default: true,
+                    callback: function (response, convo) {
+                        convo.say("Sorry, wrong answer. Try again!");
+                        convo.repeat();
+                        convo.next();
+                    }
+                }
+            ], {}, 'menu_2');
+            
             
             convo.addMessage({
                 text: "Congrats, you did it!",
@@ -103,55 +126,9 @@ module.exports = function (controller) {
                 action: 'default'
             }, 'menu_2');
             
-          convo.ask("What is the Maximum Resolution", [
-                {
-                    pattern: "1080|1080p",
-                    callback: function (response, convo) {
-                    convo.gotoThread('success1'); 
-                    convo.next();
-                    },
-                }
-                , {
-                    pattern: "cancel|stop|exit",
-                    callback: function (response, convo) {
-                        convo.say("Got it, cancelling...");
-                        convo.next();
-                    },
-                }
-                , {
-                    default: true,
-                    callback: function (response, convo) {
-                        convo.say("Sorry, you missed it. Try again!");
-                        convo.repeat();
-                        convo.next();
-                    }
-                }
-             ], {}, 'webex1');
+          
             
-            convo.ask("What is the Maximum Users", [
-                {
-                    pattern: "1000|1000people",
-                    callback: function (response, convo) {
-                    convo.gotoThread('success1'); 
-                    convo.next();
-                    },
-                }
-                , {
-                    pattern: "cancel|stop|exit",
-                    callback: function (response, convo) {
-                        convo.say("Got it, cancelling...");
-                        convo.next();
-                    },
-                }
-                , {
-                    default: true,
-                    callback: function (response, convo) {
-                        convo.say("Sorry, you missed it. Try again!");
-                        convo.repeat();
-                        convo.next();
-                    }
-                }
-            ], {}, 'webex2');
+            
             
             
     function pickChallenge() {
