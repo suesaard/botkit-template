@@ -45,9 +45,15 @@ module.exports = function (controller) {
             ]);
             
             convo.addMessage({
-  
+                 convo.gotoThread('menu_2');
                 action: 'default'
             }, 'menu_1');
+            
+            convo.addMessage({
+                 text:"Pass"
+                action: 'default'
+            }, 'menu_2');
+
 
             // Bad response
             convo.addMessage({
