@@ -12,7 +12,7 @@ module.exports = function (controller) {
             {
                     pattern: "1|community|communities",
                     callback: function (response, convo) {
-                        convo.next();
+                        convo.gotoThread('menu_1');
                     },
                 }
                 , {
