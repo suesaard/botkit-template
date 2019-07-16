@@ -80,8 +80,12 @@ module.exports = function (controller) {
             
               convo.addMessage({
                 text: "Congrats, you did it!",
-                action: 'default'
             }, 'success1');
+            
+             convo.addMessage({
+                text: "Congrats, you did it!",
+                action: 'default'
+            }, 'success2');
            
 
             
