@@ -12,7 +12,7 @@ module.exports = function (controller) {
             {
                     pattern: "1|community|communities",
                     callback: function (response, convo) {
-                        convo.gotoThread('menu_1');
+                        convo.next();
                     },
                 }
                 , {
@@ -81,6 +81,7 @@ module.exports = function (controller) {
             ]);
             
             convo.addMessage({
+                text:"Pass",
                 action: 'default'
             }, 'menu_1');
             
