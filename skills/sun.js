@@ -77,6 +77,11 @@ module.exports = function (controller) {
                 text: "Congrats, you did it!",
                 action: 'default'
             }, 'success');
+            
+              convo.addMessage({
+                text: "Congrats, you did it!",
+                action: 'default'
+            }, 'success1');
            
 
             
@@ -96,14 +101,8 @@ module.exports = function (controller) {
                 {
                     pattern: "1080|1080p",
                     callback: function (response, convo) {
-                        convo.say("Congrats, you did it!<br/>_What is the Maximum Users_");
-                        convo.next();
-                    },
-                }
-                , {
-                    pattern: "1000|1000people",
-                    callback: function (response, convo) {
-                        convo.gotoThread('ask-drink');
+                    convo.gotoThread('success1'); 
+                    convo.next();
                     },
                 }
                 , {
