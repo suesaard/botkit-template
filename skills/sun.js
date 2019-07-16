@@ -4,7 +4,7 @@ module.exports = function (controller) {
 
         bot.startConversation(message, function (err, convo) {
             var question = "Please select menu.:";
-            question += "<br/> `1)` **Math**";
+            question += "<br/> `1)` **Math Question**";
             question += "<br/> `2)` **Cisco WebEX Question**";
             question += "<br/> `3)` **INFO**";
             question += "\n\nWhat do you want to do ?<br/>_(type a number, a **bold keyword** or `cancel`)_";
@@ -92,9 +92,9 @@ module.exports = function (controller) {
                 action: 'default'
             }, 'menu_2');
             
-          convo.ask("What about coffee (yes/**no**/cancel)", [
+          convo.ask("What is the Maximum Resolution", [
                 {
-                    pattern: "yes|yeh|sure|oui|si",
+                    pattern: "1080|1080p",
                     callback: function (response, convo) {
                         convo.say("Go, get some !");
                         convo.next();
