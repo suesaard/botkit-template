@@ -45,7 +45,7 @@ module.exports = function (controller) {
             ]);
             
             convo.addMessage({
-                
+                action: 'default'
             }, 'menu_1');
 
             // Bad response
