@@ -3,7 +3,7 @@
 //
 module.exports = function (controller) {
 
-    controller.hears([/^storage$/], 'direct_message,direct_mention', function (bot, message) {
+    controller.hears([/^hello$/], 'direct_message,direct_mention', function (bot, message) {
 
         // Check if a User preference already exists
         var userId = message.raw_message.actorId;
@@ -73,9 +73,9 @@ function showUserPreference(controller, bot, message, userId, color) {
 function askForUserPreference(controller, bot, message, userId) {
     bot.startConversation(message, function (err, convo) {
 
-        convo.ask("What is your favorite color?", [
+        convo.ask("Any Question ?", [
             {
-                pattern: "^blue|green|pink|red|yellow$",
+                pattern: "^time|green|pink|red|yellow$",
                 callback: function (response, convo) {
 
                     // Store color as user preference
